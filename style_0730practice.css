@@ -1,0 +1,58 @@
+/* 一般設定：整體字型與背景 */
+body {
+  margin: 0; /* 移除預設外邊距 */
+  font-family: "Noto Sans TC", sans-serif; /* 設定字型為思源黑體 */
+  background-color: #f3f1e8; /* 背景色為柔和米色 */
+  color: #222; /* 文字顏色深灰色 */
+}
+
+/* 首頁 Hero 區塊樣式 */
+.hero {
+  background-color: #f1efea; /* 背景色稍淺的米色 */
+  text-align: center; /* 文字置中 */
+  padding: 100px 20px 80px; /* 上下內距空間 */
+}
+
+.hero h1 {
+  font-size: 48px; /* 字型大小 */
+  font-weight: bold; /* 粗體 */
+  margin-bottom: 10px; /* 下方留空距 */
+}
+
+.hero .subtitle {
+  font-style: italic; /* 斜體 */
+  font-size: 20px;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+.main-btn {
+  padding: 12px 24px;
+  background-color: #f1c987; /* 淺橘黃色按鈕 */
+  border: none;
+  font-size: 16px;
+  cursor: pointer; /* 滑鼠變成手指 */
+  border-radius: 4px; /* 圓角 */
+}
+
+/* 推薦區塊 */
+.recommend {
+  background-color: #fdf5dc; /* 輕米色底 */
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.highlight {
+  margin-bottom: 30px;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #f1e9e0;
+  color: orange;
+  font-style: italic;
+  font-weight: bold;
+  padding: 4px 8px;
+  border: 1px solid #aaa;
+  margin-right: 8px;
+}
