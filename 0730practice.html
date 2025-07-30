@@ -8,47 +8,59 @@
 </head>
 <body>
 
+
   <!-- Hero 區塊 -->
-  <section class="hero"> <!-- 首頁大標題區 -->
-    <h1>藥師保健室</h1> <!-- 主標題 -->
-    <p class="subtitle">Ego cogito ergo sum</p> <!-- 副標題 -->
-    <button class="main-btn">以理論來挑選產品</button> <!-- 主按鈕 -->
+  <section class="hero">
+    <h1 class="hero-title">藥師保健室</h1>
+    <p class="hero-subtitle">Ego cogito ergo sum</p>
+    <button class="hero-btn">以理論來挑選產品</button>
   </section>
 
-  <!-- 推薦區塊 -->
-  <section class="recommend"> <!-- 蝦皮推薦區 -->
-    <div class="highlight">
-      <span class="badge">Shopee Choice</span> <!-- 標籤樣式 -->
-      <p>蝦皮藥師特選</p> <!-- 說明文字 -->
-    </div>
-    <div class="to-link">
-      <p><strong>前往蝦皮精選 🛒</strong></p> <!-- 前往連結提示 -->
-      <p>挑選原則：成分、劑量、價格到位</p> <!-- 精選原則 -->
-    </div>
-  </section>
 
-  <!-- 圖片卡片區 -->
-<section class="product-section">
-  <div class="product-container">
+ <!-- === 第二區：Shopee 特選 + Venn + 類別卡片 === -->
+<section class="section-2">
+  <div class="section-2__inner">
 
-    <!-- 左邊角色圖 -->
-    <div class="product-item">
-      <img src="O.jpg" alt="Try Me" class="round-img">
-    </div>
+    <!-- 左側：Shopee 特選 & Venn Diagram -->
+    <div class="section-2__left">
 
-    <!-- 中間產品卡片 -->
-    <div class="product-item card">
-      <img src="P.png" alt="product1" class="product-img">
-      <p>輸入折扣碼 <strong>NN520</strong> 享 9 折優惠</p>
-      <button class="product-btn">產品介紹</button>
+      <div class="shopee-head">
+      <!-- 標題灰盒 -->
+      <div class="shopee-box">
+        <span class="shopee-box__label">Shopee Choice</span>
+        <h2 class="shopee-box__title">蝦皮藥師特選</h2>
+      </div>
+
+      <!-- CTA 區：按鈕 + 原則文字 -->
+      <div class="shopee-cta">
+        <button class="shopee-btn">前往蝦皮精選 🛒</button>
+        <p class="shopee-desc">挑選原則：成分、劑量、價格到位</p>
+      </div>
     </div>
 
-    <!-- 右邊產品卡片 -->
-    <div class="product-item card">
-      <img src="what.jpg" alt="product2" class="product-img">
-      <p>藥師特選黃牛樟芝<br>購買享 8 折優惠</p>
-      <button class="product-btn">購買連結</button>
+      <!-- Venn Diagram 三圈 -->
+      <div class="venn-diagram">
+        <div class="venn-diagram__circle venn-diagram__c1">
+          <span>成分</span>
+        </div>
+        <div class="venn-diagram__circle venn-diagram__c2">
+          <span>劑量</span>
+        </div>
+        <div class="venn-diagram__circle venn-diagram__c3">
+          <span>價格</span>
+        </div>
+        <!-- 中心交集 -->
+        <div class="venn-diagram__center">
+          <span>蝦皮<br>推薦</span>
+        </div>
+      </div>
     </div>
+
+      <!-- 右側：一張大圖佔位 -->
+      <div class="section-2__right">
+        <img src="loser.jpg" alt="保健品選單" class="right-img-placeholder">
+    </div>
+
 
   </div>
 </section>

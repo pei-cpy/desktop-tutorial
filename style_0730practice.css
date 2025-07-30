@@ -6,104 +6,126 @@ body {
   color: #222; /* 文字顏色深灰色 */
 }
 
-/* 首頁 Hero 區塊樣式 */
+/* 第一區：首頁 Hero 樣式 */
 .hero {
-  background-color: #f1efea; /* 背景色稍淺的米色 */
-  text-align: center; /* 文字置中 */
-  padding: 100px 20px 80px; /* 上下內距空間 */
-}
-
-.hero h1 {
-  font-size: 48px; /* 字型大小 */
-  font-weight: bold; /* 粗體 */
-  margin-bottom: 10px; /* 下方留空距 */
-}
-
-.hero .subtitle {
-  font-style: italic; /* 斜體 */
-  font-size: 20px;
-  color: #444;
-  margin-bottom: 30px;
-}
-
-.main-btn {
-  padding: 12px 24px;
-  background-color: #f1c987; /* 淺橘黃色按鈕 */
-  border: none;
-  font-size: 16px;
-  cursor: pointer; /* 滑鼠變成手指 */
-  border-radius: 4px; /* 圓角 */
-}
-
-/* 推薦區塊 */
-.recommend {
-  background-color: #fdf5dc; /* 輕米色底 */
-  padding: 60px 20px;
+  background-color: #f6f4ef; /* 米白底色 */
   text-align: center;
+  padding: 100px 20px 80px;
 }
 
-.highlight {
-  margin-bottom: 30px;
+.hero-title {
+  font-size: 56px;
+  font-weight: 900;
+  margin: 0;
+  color: #000;
 }
 
-.badge {
-  display: inline-block;
-  background-color: #f1e9e0;
-  color: orange;
+.hero-subtitle {
+  font-size: 28px;
   font-style: italic;
+  margin: 20px 0 40px;
+  font-family: 'Georgia', serif;
+  color: #111;
+}
+
+.hero-btn {
+  background-color: #f6cd8f;
+  color: #000;
   font-weight: bold;
-  padding: 4px 8px;
-  border: 1px solid #aaa;
-  margin-right: 8px;
-}
-
-
-/* 圖片圖卡區 */
-.product-section {
-  background-color: #f3f1e8;
-  padding: 60px 20px;
-}
-
-.product-container {
-  max-width: 1000px;
-  margin: auto;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  gap: 20px;
-  flex-wrap: wrap; /* 自動換行 */
-}
-
-.product-item {
-  text-align: center;
-}
-
-.round-img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.card {
-  background-color: #fff;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  width: 250px;
-}
-
-.product-img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-.product-btn {
-  padding: 10px 20px;
-  background-color: #ddd;
+  padding: 16px 36px;
+  font-size: 18px;
   border: none;
-  border-radius: 4px;
-  font-weight: bold;
+  border-radius: 2px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
+
+.hero-btn:hover {
+  background-color: #f0b95d;
+}
+
+
+/* =====================================================
+   第二區  (Shopee Choice + CTA + Venn + 圖片)
+   ===================================================== */
+.section-2{ background:#fdf5dc; padding:80px 5vw; }
+
+.section-2__inner{
+  display:flex;
+  flex-wrap:wrap;              /* 讓窄螢幕自動換行 */
+  gap:4vw;
+  justify-content:space-between;
+  align-items:flex-start;
+}
+
+/* ------------------ 左欄 ------------------ */
+.section-2__left{ flex:1 1 420px; } /* 最小寬 420px，可放到下一行 */
+
+.shopee-head{ display:flex; align-items:flex-start; gap:3vw; }
+
+/* 標題灰盒 */
+.shopee-box{
+  background:rgba(0,0,0,.1);
+  padding:1.2rem 2rem;
+  font-family:"Noto Sans TC",sans-serif;
+  box-shadow:6px 6px rgba(0,0,0,.06);
+}
+.shopee-box__label{ font-style:italic; color:#e28033; font-size:2.2rem; line-height:1; }
+.shopee-box__title{ margin:4px 0 0; font-size:3rem; font-weight:900; line-height:1.1; }
+
+/* CTA 區 (按鈕 + 原則文字) */
+.shopee-cta{
+  display:flex; flex-direction:column; align-items:center; gap:.8rem;
+  white-space:nowrap;           /* ❸ 不讓文字換行 */
+}
+.shopee-btn{
+  padding:1rem 3.2rem;
+  font-size:1.8rem; border:3px dashed #8c846f; border-radius:10px;
+  background:none; cursor:pointer; display:flex; gap:.8rem; align-items:center;
+}
+.shopee-desc{ font-size:1.6rem; font-weight:700; }
+
+/* ------------------ Venn Diagram ------------------ */
+.venn-diagram{ position:relative; width:34rem; height:34rem; margin-top:4rem; }
+
+.venn-diagram__circle{
+  position:absolute; width:24rem; height:24rem; border-radius:50%; opacity:.55;
+}
+/* 各圓顏色 */
+.venn-diagram__c1{ top:0; left:2rem;  background:#8ba3ff; }  /* 紫藍 */
+.venn-diagram__c2{ top:0; left:14rem; background:#f28a8a; }  /* 粉紅 */
+.venn-diagram__c3{ top:12rem; left:8rem;background:#f5d28a; }/* 淡金 */
+
+/* 圈內文字顏色與位置 */
+.venn-diagram__circle span{
+  position:absolute; top:26%; left:50%; transform:translate(-50%,-50%);
+  font-size:3rem; font-weight:800; color:inherit; /* ❶ 借用父層背景顏色 */
+  mix-blend-mode:multiply;        /* 讓文字融入圈色 */
+}
+
+/* 中心白字置中 (不留白圈) */
+.venn-diagram__center{
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-48%);
+  font-size:1.8rem; font-weight:900; color:#fff; pointer-events:none;
+}
+
+/* ------------------ 右欄圖片 ------------------ */
+.section-2__right{ flex:1 1 420px; display:flex; justify-content:flex-end; }
+
+.right-img-placeholder,
+.right-img-placeholder img{
+  width:52rem; height:32rem; border-radius:14px; object-fit:cover;
+  box-shadow:0 4px 12px rgba(0,0,0,.1);
+}
+
+/* ------------------ RWD：小於 768px ------------- */
+@media(max-width:768px){
+  .sho­pee-head{ flex-direction:column; gap:2rem; }
+  .shopee-btn{ font-size:1.6rem; padding:.8rem 2.4rem; }
+  .shopee-desc{ font-size:1.4rem; }
+  .venn-diagram{ transform:scale(.8); transform-origin:left top; }
+  .right-img-placeholder{ width:100%; height:28rem; }
+}
+
+
+
