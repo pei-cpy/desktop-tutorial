@@ -52,7 +52,7 @@ body {
 
 .section-2__inner{
   display:flex;
-  flex-wrap:wrap;              /* 讓窄螢幕自動換行 */
+  /*flex-wrap:wrap;              /* 讓窄螢幕自動換行 */
   gap:4vw;
   justify-content:space-between;
   align-items:flex-start;
@@ -72,18 +72,6 @@ body {
 }
 .shopee-box__label{ font-style:italic; color:#e28033; font-size:2.2rem; line-height:1; }
 .shopee-box__title{ margin:4px 0 0; font-size:3rem; font-weight:900; line-height:1.1; }
-
-/* CTA 區 (按鈕 + 原則文字) */
-.shopee-cta{
-  display:flex; flex-direction:column; align-items:center; gap:.8rem;
-  white-space:nowrap;           /* ❸ 不讓文字換行 */
-}
-.shopee-btn{
-  padding:1rem 3.2rem;
-  font-size:1.8rem; border:3px dashed #8c846f; border-radius:10px;
-  background:none; cursor:pointer; display:flex; gap:.8rem; align-items:center;
-}
-.shopee-desc{ font-size:1.6rem; font-weight:700; }
 
 /* ------------------ Venn Diagram ------------------ */
 .venn-diagram{ position:relative; width:34rem; height:34rem; margin-top:4rem; }
@@ -109,8 +97,20 @@ body {
   font-size:1.8rem; font-weight:900; color:#fff; pointer-events:none;
 }
 
-/* ------------------ 右欄圖片 ------------------ */
+/* ------------------ 右欄圖片 + CTA 區------------------ */
 .section-2__right{ flex:1 1 420px; display:flex; justify-content:flex-end; }
+
+/* CTA 區 (按鈕 + 原則文字) */
+.shopee-cta{
+  display:flex; flex-direction:column; align-items:center; gap:.8rem;
+  white-space:nowrap;           /* ❸ 不讓文字換行 */
+}
+.shopee-btn{
+  padding:1rem 3.2rem;
+  font-size:1.8rem; border:3px dashed #8c846f; border-radius:10px;
+  background:none; cursor:pointer; display:flex; gap:.8rem; align-items:center;
+}
+.shopee-desc{ font-size:1.6rem; font-weight:700; }
 
 .right-img-placeholder,
 .right-img-placeholder img{
