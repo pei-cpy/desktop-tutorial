@@ -19,35 +19,35 @@
 
  <!-- === 第二區：Shopee 特選 + Venn + 類別卡片 === -->
 <section class="section-2">
+  <div class="container"> 
   <div class="section-2__inner">
 
     <!-- 左側：Shopee 特選 & Venn Diagram -->
     <div class="section-2__left">
 
-      <div class="shopee-head">
       <!-- 標題灰盒 -->
         <div class="shopee-box">
           <span class="shopee-box__label">Shopee Choice</span>
           <h2 class="shopee-box__title">蝦皮藥師特選</h2>
         </div>
-      </div>
 
       <!-- Venn Diagram 三圈 -->
       <div class="venn-diagram">
         <div class="venn-diagram__circle venn-diagram__c1">
-          <span>成分</span>
+          <span class="label-ingredient">成分</span>
         </div>
         <div class="venn-diagram__circle venn-diagram__c2">
-          <span>劑量</span>
+          <span class="label-dosage">劑量</span>
         </div>
         <div class="venn-diagram__circle venn-diagram__c3">
-          <span>價格</span>
+          <span class="label-price">價格</span>
         </div>
         <!-- 中心交集 -->
         <div class="venn-diagram__center">
           <span>蝦皮<br>推薦</span>
         </div>
       </div>
+
     </div>
 
     <!-- 右側：一張大圖佔位 -->
@@ -62,9 +62,72 @@
         <img src="loser.jpg" alt="保健品選單" class="right-img-placeholder">
     </div>
 
-
+  </div>
   </div>
 </section>
+
+
+<!-- ===== 第三欄：折扣碼 + 產品卡 ===== -->
+<section class="section-3">
+  <div class="container">
+    <div class="section-3__inner">
+
+      <!-- 左側：灰盒 + 吉祥物 -->
+      <div class="section-3__left">
+        <!-- 折扣碼灰盒 -->
+        <div class="discount-box">產品折扣碼</div>
+        <!-- 吉祥物 (O.jpg 換成你的圖) -->
+        <img src="O.jpg" alt="TRY ME 吉祥物" class="mascot">
+      </div>
+
+      <!-- 右側：兩張產品卡 -->
+      <div class="section-3__right">
+
+        <!-- 卡片 #1 -->
+        <article class="card">
+         <div class="card__frame">
+          <h3 class="card__title">極奢膠原蛋白</h3>
+          <figure class="card__photo"><img src="O.jpg" alt=""></figure>
+         </div>
+
+
+          <a href="#" class="card__btn">購買連結 🔗</a>
+
+          <p class="card__promo">
+            輸入折扣碼 <strong>nn520</strong><br>
+            賣場內兩件以上就享 <span class="hot">9折</span><br>
+            用在非開團期間使用
+          </p>
+
+          <a href="#" class="card__btn card__btn--ghost">產品介紹 🔗</a>
+          <div class="arrow-up"></div>
+
+          <p class="card__note">內有成分以及產品分析</p>
+        </article>
+
+        <!-- 卡片 #2 -->
+        <article class="card">
+          <h3 class="card__title">薑黃萃取物複方膠囊</h3>
+
+          <figure class="card__photo">
+            <img src="O.jpg" alt="蕈菇膠囊">
+          </figure>
+
+          <a href="#" class="card__btn">購買連結 🔗</a>
+
+          <p class="card__promo">
+            藥師特選靈芝牛樟芝<br>
+            此連結購買享8折優惠
+          </p>
+         
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
 
 </body>

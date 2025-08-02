@@ -6,6 +6,15 @@ body {
   color: #222; /* 文字顏色深灰色 */
 }
 
+
+/* 版心容器：全站共用一條即可 */
+.container{
+  width:1280px;         /* 設計稿總寬 */
+  max-width:100%;       /* 保險：若螢幕 < 1280 仍能縮 */
+  margin:0 auto;        /* 置中 */
+}
+
+
 /* 第一區：首頁 Hero 樣式 */
 .hero {
   background-color: #f6f4ef; /* 米白底色 */
@@ -48,79 +57,240 @@ body {
 /* =====================================================
    第二區  (Shopee Choice + CTA + Venn + 圖片)
    ===================================================== */
-.section-2{ background:#fdf5dc; padding:80px 5vw; }
+.section-2{ background:#fdf5dc; padding:80px 2vw; }
 
 .section-2__inner{
   display:flex;
-  /*flex-wrap:wrap;              /* 讓窄螢幕自動換行 */
-  gap:4vw;
-  justify-content:space-between;
+  flex-wrap:nowrap;  
+  gap:60px;             /* ← 用 px，寬度再大也不變 */            
+  justify-content:flex-start;
   align-items:flex-start;
 }
 
 /* ------------------ 左欄 ------------------ */
-.section-2__left{ flex:1 1 420px; } /* 最小寬 420px，可放到下一行 */
+.section-2__left{ 
+  flex:0 0 34rem; 
+  max-width:34rem; /* 2. 左欄寬度 = Venn 圖寬，且允許縮小 */
+  display:flex;         /* 讓左欄本身成為 Flex 容器          */
+  flex-direction:column;/* 垂直排：灰盒在上，Venn 在下       */
+  align-items:center;   /* 水平置中所有子項（關鍵！）        */ 
+} 
 
-.shopee-head{ display:flex; align-items:flex-start; gap:3vw; }
+
 
 /* 標題灰盒 */
-.shopee-box{
-  background:rgba(0,0,0,.1);
-  padding:1.2rem 2rem;
-  font-family:"Noto Sans TC",sans-serif;
-  box-shadow:6px 6px rgba(0,0,0,.06);
+.shopee-box{  /*標題灰盒本體*/
+  margin:0 auto 2.5rem; /* 左右自動置中，並與 Venn 留 2.5rem */
+  display:inline-block; /* ⬅ 只包文字寬度，避免整排拉滿 */
+  background:rgba(0,0,0,.1); /*灰盒背景：10 % 黑色透明；帶淡灰效果*/
+  padding:1.2rem 2rem; /*內距：上下 1.2 rem、左右 2 rem*/
+  font-family:"Noto Sans TC",sans-serif; /*灰盒背景：10 % 黑色透明；帶淡灰效果*/
+  box-shadow:6px 6px rgba(0,0,0,.06); /*投下右下 6 px、淡黑 6 % 的陰影*/
 }
 .shopee-box__label{ font-style:italic; color:#e28033; font-size:2.2rem; line-height:1; }
-.shopee-box__title{ margin:4px 0 0; font-size:3rem; font-weight:900; line-height:1.1; }
+.shopee-box__title{ margin:4px 0 0; font-size:3rem; font-weight:900; line-height:1.1; } 
+/*上方留 4 px 間距、字高 3 rem、粗黑體，行高 1.1（稍貼）*/
 
 /* ------------------ Venn Diagram ------------------ */
-.venn-diagram{ position:relative; width:34rem; height:34rem; margin-top:4rem; }
+.venn-diagram{ 
+  position:relative; 
+  width:34rem; 
+  height:34rem; 
+  margin:40px auto 0;
+  transform:translateX(-2rem);/* ★ 把多出的 2rem 空隙抵消 */
+ }
 
 .venn-diagram__circle{
-  position:absolute; width:24rem; height:24rem; border-radius:50%; opacity:.55;
+  position:absolute; 
+  width:24rem; 
+  height:24rem; 
+  border-radius:50%; 
+  opacity:.55;
 }
+
 /* 各圓顏色 */
 .venn-diagram__c1{ top:0; left:2rem;  background:#8ba3ff; }  /* 紫藍 */
 .venn-diagram__c2{ top:0; left:14rem; background:#f28a8a; }  /* 粉紅 */
 .venn-diagram__c3{ top:12rem; left:8rem;background:#f5d28a; }/* 淡金 */
 
-/* 圈內文字顏色與位置 */
+/* ② 所有圈內文字的「水平置中」共用設定 */
 .venn-diagram__circle span{
-  position:absolute; top:26%; left:50%; transform:translate(-50%,-50%);
-  font-size:3rem; font-weight:800; color:inherit; /* ❶ 借用父層背景顏色 */
-  mix-blend-mode:multiply;        /* 讓文字融入圈色 */
+  position:absolute;
+  transform:translateX(-50%);   /* 水平置中 */
+  font-weight:800;
+  white-space:nowrap;
 }
+
+/* 圈內文字顏色與位置 */
+.label-ingredient{ top:22%; left:30%; font-size:4rem; color:#4b4bf5; }
+.label-dosage    { top:22%; left:68%; font-size:4rem;color:#e25a5a; }
+.label-price     { top:57%; left:50%; font-size:4rem;color:#d5a000; }
 
 /* 中心白字置中 (不留白圈) */
 .venn-diagram__center{
-  position:absolute; top:50%; left:50%; transform:translate(-50%,-48%);
+  position:absolute; top:50%; left:58%; transform:translate(-50%,-50%);
   font-size:1.8rem; font-weight:900; color:#fff; pointer-events:none;
 }
 
 /* ------------------ 右欄圖片 + CTA 區------------------ */
-.section-2__right{ flex:1 1 420px; display:flex; justify-content:flex-end; }
+.section-2__right{
+  flex:1 1 0;
+  display:flex;
+  flex-direction:column;   /* 由上而下：CTA → 圖片 */
+  align-items:center;      /* 置中對齊 */
+  gap:2rem;                /* 兩者垂直間距 */
+}
 
 /* CTA 區 (按鈕 + 原則文字) */
 .shopee-cta{
-  display:flex; flex-direction:column; align-items:center; gap:.8rem;
+  display:flex; 
+  flex-direction:column; 
+  align-items:center; 
+  gap:.8rem;
   white-space:nowrap;           /* ❸ 不讓文字換行 */
 }
 .shopee-btn{
   padding:1rem 3.2rem;
   font-size:1.8rem; border:3px dashed #8c846f; border-radius:10px;
-  background:none; cursor:pointer; display:flex; gap:.8rem; align-items:center;
+  background:none; cursor:pointer; display:flex; gap:.3rem; align-items:center;
 }
 .shopee-desc{ font-size:1.6rem; font-weight:700; }
 
-.right-img-placeholder,
-.right-img-placeholder img{
-  width:52rem; height:32rem; border-radius:14px; object-fit:cover;
-  box-shadow:0 4px 12px rgba(0,0,0,.1);
+.right-img-placeholder{ width:100%; max-width:35rem; box-shadow:0 4px 12px rgba(0,0,0,.1);} /* 視窗小就跟著收 */
+  
+
+
+/* =====================================================
+   第三區  (折扣碼灰盒 + 吉祥物 + 兩張產品卡片)
+   ===================================================== */
+.section-3{ background:#f6f4ef; padding:80px 0; }
+
+/* 版面：左欄固定寬，右欄滿剩餘寬；兩者間距固定 60px */
+.section-3__inner{
+  display:flex;
+  gap:60px;               /* ★ 固定欄距，不隨螢幕變 */
+  align-items:flex-start;
 }
+
+/* ---------- 左欄 ---------- */
+.section-3__left{
+  flex:0 0 260px;         /* 灰盒 + 吉祥物寬度 */
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:40px;
+}
+
+.discount-box{
+  display:inline-block;
+  background:rgba(0,0,0,.1);
+  white-space:nowrap;               /* ① 不允許文字自動換行       */
+  padding:1.2rem 3rem;
+  font-size:42px;
+  font-weight:900;
+  font-family:"Noto Sans TC",sans-serif;
+  box-shadow:6px 6px rgba(0,0,0,.06);
+}
+
+.mascot{ width:220px; height:auto; }
+
+/* ---------- 右欄：產品卡群 ---------- */
+.section-3__right{
+  flex:1 1 0;
+  display:flex;
+  gap:80px;               /* 兩張卡水平間距固定 */
+}
+
+
+/* ② 灰色方盒包住標題 + 圖片 */
+.card__frame{
+  background:rgba(0,0,0,.06);   /* 同前灰色 */
+  padding:8px;
+  margin-bottom:24px;           /* 與按鈕留距 */
+}
+
+.card{
+  width:260px;            /* 固定卡片寬 */
+  text-align:center;
+  font-family:"Noto Sans TC",sans-serif;
+}
+
+.card__title{        /* 放 inside 灰盒時要重設 margin */
+  margin:0 0 8px;
+  font-size:24px; font-weight:700;
+}
+
+.card__photo{
+  width:200px;height:200px;margin:0 auto;
+  /* 取消原 photo 背景 → 已由 frame 代勞 */
+  padding:0;background:none;
+}
+
+.card__photo img{ width:100%; height:100%; object-fit:cover; }
+
+.card__btn{
+  display:inline-block;
+  background:#faf8f5;               /* ③ 加淡底色 (同頁背景略深)   */
+  padding:8px 32px;
+  margin:8px 0;
+  border:3px dashed #8c846f;
+  border-radius:10px;
+  background:none;
+  font-weight:700;
+  font-size:18px;
+  cursor:pointer;
+  text-decoration:none; color:#000;
+}
+.card__btn:hover{ background:#f0ece7; }
+.card__btn--ghost{ background:#f6f4ef; }  /* 產品介紹按鈕淡色 */
+
+/* === 產品介紹按鈕下的「黑色向上箭頭」 ================ */
+.card__btn--ghost + .card__note::before{
+  content:"";
+  display:block;
+  width:0;  height:0;               /* 做一個 CSS 三角形 ↑        */
+  margin:.8rem auto -.2rem;
+  border:12px solid transparent;
+  border-bottom-color:#000;         /* 填黑，箭頭朝上              */
+}
+
+/* === Promo 區調整 (nn520 包括括號) ================== */
+.card__promo strong::before{ content:"【"; }
+.card__promo strong::after { content:"】"; }
+/* 若 nn520 字體過大，可再為 strong 單獨設 font-weight、size */
+.card__promo{ font-size:16px; line-height:1.6; margin:.4rem 0 1.6rem; }
+.card__promo .hot{ color:#c22727; font-weight:900; }
+
+.card__note{ font-size:14px; margin-top:.8rem; }
+
+
+/* ④ 黑色「實體」箭頭，上 14 × 18 px */
+.arrow-up{
+  width:0;height:0;
+  margin:8px auto -4px;          /* 與按鈕距離／微貼上 */
+  border-left:14px solid transparent;
+  border-right:14px solid transparent;
+  border-bottom:18px solid #000; /* 實心向上箭頭 */
+}
+
+
+
+/* ---------- 手機版 (≤600px) ---------- */
+@media(max-width:600px){
+  .section-3__inner{ flex-direction:column; gap:40px; }
+  .section-3__left{ flex:1 1 100%; }
+  .section-3__right{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:40px;
+  }
+}
+
+
+
 
 /* ------------------ RWD：小於 768px ------------- */
 @media(max-width:768px){
-  .sho­pee-head{ flex-direction:column; gap:2rem; }
   .shopee-btn{ font-size:1.6rem; padding:.8rem 2.4rem; }
   .shopee-desc{ font-size:1.4rem; }
   .venn-diagram{ transform:scale(.8); transform-origin:left top; }
