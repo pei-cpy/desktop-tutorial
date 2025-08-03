@@ -26,9 +26,9 @@
     <div class="section-2__left">
 
       <!-- 標題灰盒 -->
-        <div class="shopee-box">
-          <span class="shopee-box__label">Shopee Choice</span>
-          <h2 class="shopee-box__title">蝦皮藥師特選</h2>
+        <div class="ui-box is-wide">
+          <span class="ui-box__label">Shopee Choice</span>
+          <h2 class="ui-box__title">蝦皮藥師特選</h2>
         </div>
 
       <!-- Venn Diagram 三圈 -->
@@ -59,7 +59,13 @@
         <p class="shopee-desc">挑選原則：成分、劑量、價格到位</p>
       </div>
 
-        <img src="loser.jpg" alt="保健品選單" class="right-img-placeholder">
+        <!--<img src="loser.jpg" alt="保健品選單" class="right-img-placeholder"> -->
+        <!-- ⚠ 兩張圖同尺寸；第一張是預設，第二張是 hover 時要露出的圖 -->
+      <div class="right-img-placeholder img-hover">
+          <img src="loser.jpg"   alt="原圖"      class="top-img">
+          <img src="O.jpg" alt="Hover 圖">        <!-- 換成你的替換圖 -->
+      </div>
+
     </div>
 
   </div>
@@ -75,9 +81,9 @@
       <!-- 左側：灰盒 + 吉祥物 -->
       <div class="section-3__left">
         <!-- 折扣碼灰盒 -->
-        <div class="discount-box">產品折扣碼</div>
+        <div class="ui-box ui-box--single is-wide">產品折扣碼</div>
         <!-- 吉祥物 (O.jpg 換成你的圖) -->
-        <img src="O.jpg" alt="TRY ME 吉祥物" class="mascot">
+        <img src="P.png" alt="TRY ME 吉祥物" class="mascot">
       </div>
 
       <!-- 右側：兩張產品卡 -->
@@ -87,7 +93,7 @@
         <article class="card">
          <div class="card__frame">
           <h3 class="card__title">極奢膠原蛋白</h3>
-          <figure class="card__photo"><img src="O.jpg" alt=""></figure>
+          <figure class="card__photo"><img src="what.jpg" alt=""></figure>
          </div>
 
 
@@ -107,16 +113,17 @@
 
         <!-- 卡片 #2 -->
         <article class="card">
+        <div class="card__frame">
           <h3 class="card__title">薑黃萃取物複方膠囊</h3>
+          <figure class="card__photo"><img src="meow.jpg" alt="蕈菇膠囊"></figure>
+        </div>
 
-          <figure class="card__photo">
-            <img src="O.jpg" alt="蕈菇膠囊">
-          </figure>
+          
 
           <a href="#" class="card__btn">購買連結 🔗</a>
 
           <p class="card__promo">
-            藥師特選靈芝牛樟芝<br>
+            藥師特選薑黃牛樟芝<br>
             此連結購買享8折優惠
           </p>
          

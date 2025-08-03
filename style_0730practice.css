@@ -54,10 +54,66 @@ body {
 }
 
 
+/* ==== 灰盒共通樣式 ============================== */
+.ui-box{
+    display:inline-flex;                 /* 讓 label / 標題可以垂直排 */
+    flex-direction:column;
+    justify-content:center;              /* 垂直置中 */
+    background:rgba(0,0,0,.1);
+    box-shadow:6px 6px rgba(0,0,0,.06);
+    padding:1.2rem 2.4rem;
+    font-family:"Noto Sans TC",sans-serif;
+    line-height:1.25;
+}
+
+/* 統一字體大小（標題 & 單行灰盒）*/
+.ui-box,
+.ui-box__title{              /* 主標字 */
+    font-size:2.8rem;        /* 想要多大就改這裡 */
+    font-weight:900;
+}
+
+/* 斜體橘色小標（只有 Shopee 那一個有）*/
+.ui-box__label{
+    font-size:2rem;
+    font-style:italic;
+    color:#e28033;
+    line-height:1;
+    margin-bottom:.4rem;
+}
+
+/* 版心想要「一條線對齊」→ 幫灰盒設定固定寬 */
+.is-wide{
+    width:300px;             /* 四個灰盒統一寬度 */
+    min-height:120px;
+    max-width:100%;
+    display:flex;            /* 讓文字可垂直置中                   */
+    flex-direction:column;
+    justify-content:center;  /* 垂直置中                           */
+
+}
+
+/* 只有主標一行的灰盒 → 文字置中 */
+.ui-box--single      { text-align:center; }
+.ui-box--single > *  { margin:0 auto; }   /* 補強：確定裡面元素都靠中 */
+
+/* ====== 協助水平對齊 ====== */
+/* 每一區最外層排版本來就是 flex（section-2__inner / section-3__inner …）
+   只要把左欄改成 align-items:center 就會讓灰盒在「欄」中水平置中 */
+.section-2__left,
+.section-3__left,
+.section-4__left,            /* 如果有第 4、5 區… */
+.section-5__left{
+    align-items:center;      /* 讓灰盒對齊版心同一條線 */
+}
+
+
+
+
 /* =====================================================
    第二區  (Shopee Choice + CTA + Venn + 圖片)
    ===================================================== */
-.section-2{ background:#fdf5dc; padding:80px 2vw; }
+.section-2{ background:#fdf5dc; padding:80px 0; }
 
 .section-2__inner{
   display:flex;
@@ -77,19 +133,10 @@ body {
 } 
 
 
-
-/* 標題灰盒 */
-.shopee-box{  /*標題灰盒本體*/
-  margin:0 auto 2.5rem; /* 左右自動置中，並與 Venn 留 2.5rem */
-  display:inline-block; /* ⬅ 只包文字寬度，避免整排拉滿 */
-  background:rgba(0,0,0,.1); /*灰盒背景：10 % 黑色透明；帶淡灰效果*/
-  padding:1.2rem 2rem; /*內距：上下 1.2 rem、左右 2 rem*/
-  font-family:"Noto Sans TC",sans-serif; /*灰盒背景：10 % 黑色透明；帶淡灰效果*/
-  box-shadow:6px 6px rgba(0,0,0,.06); /*投下右下 6 px、淡黑 6 % 的陰影*/
-}
-.shopee-box__label{ font-style:italic; color:#e28033; font-size:2.2rem; line-height:1; }
-.shopee-box__title{ margin:4px 0 0; font-size:3rem; font-weight:900; line-height:1.1; } 
+.ui-box__label{ font-style:italic; color:#e28033; font-size:2.2rem; line-height:1; }
+.ui-box__title{ margin:4px 0 0; font-size:3rem; font-weight:900; line-height:1.1; } 
 /*上方留 4 px 間距、字高 3 rem、粗黑體，行高 1.1（稍貼）*/
+
 
 /* ------------------ Venn Diagram ------------------ */
 .venn-diagram{ 
@@ -97,8 +144,7 @@ body {
   width:34rem; 
   height:34rem; 
   margin:40px auto 0;
-  transform:translateX(-2rem);/* ★ 把多出的 2rem 空隙抵消 */
- }
+   }
 
 .venn-diagram__circle{
   position:absolute; 
@@ -159,6 +205,30 @@ body {
 .right-img-placeholder{ width:100%; max-width:35rem; box-shadow:0 4px 12px rgba(0,0,0,.1);} /* 視窗小就跟著收 */
   
 
+/* ① 讓容器維持原來外觀，但同時可疊 2 張圖 */
+.img-hover{
+    position:relative;
+    overflow:hidden;                /* 防止圖片外漏 */
+}
+
+/* ② 兩張圖都鋪滿整個容器 */
+.img-hover img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+/* ③ 最上層那張圖淡出就能看到底圖 */
+.top-img{
+    position:absolute; inset:0;     /* 讓它覆蓋整個容器 */
+    transition:opacity .4s;
+}
+
+.img-hover:hover .top-img{
+    opacity:0;                      /* 滑鼠移入時變透明 */
+    pointer-events:none;            /* 避免閃爍 */
+}
+
 
 /* =====================================================
    第三區  (折扣碼灰盒 + 吉祥物 + 兩張產品卡片)
@@ -174,22 +244,11 @@ body {
 
 /* ---------- 左欄 ---------- */
 .section-3__left{
-  flex:0 0 260px;         /* 灰盒 + 吉祥物寬度 */
+  flex: 0 0 34rem;     /* = 340px */
   display:flex;
   flex-direction:column;
   align-items:center;
   gap:40px;
-}
-
-.discount-box{
-  display:inline-block;
-  background:rgba(0,0,0,.1);
-  white-space:nowrap;               /* ① 不允許文字自動換行       */
-  padding:1.2rem 3rem;
-  font-size:42px;
-  font-weight:900;
-  font-family:"Noto Sans TC",sans-serif;
-  box-shadow:6px 6px rgba(0,0,0,.06);
 }
 
 .mascot{ width:220px; height:auto; }
@@ -204,11 +263,13 @@ body {
 
 /* ② 灰色方盒包住標題 + 圖片 */
 .card__frame{
-  background:rgba(0,0,0,.06);   /* 同前灰色 */
+  background:rgba(0,0,0,.1);   /* 同前灰色 */
   padding:8px;
   margin-bottom:24px;           /* 與按鈕留距 */
-}
+  box-shadow:6px 6px rgba(0,0,0,.06);
+  }
 
+  
 .card{
   width:260px;            /* 固定卡片寬 */
   text-align:center;
