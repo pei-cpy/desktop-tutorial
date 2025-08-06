@@ -6,11 +6,14 @@ body {
   color: #222; /* 文字顏色深灰色 */
 }
 
+/*html,body{
+  overflow-x:hidden;
+}*/
 
 /* 版心容器：全站共用一條即可 */
 .container{
-  width:1280px;         /* 設計稿總寬 */
-  max-width:100%;       /* 保險：若螢幕 < 1280 仍能縮 */
+  width:100%;         /* 設計稿總寬 */
+  max-width:1280px;       /* 保險：若螢幕 < 1280 仍能縮 */
   margin:0 auto;        /* 置中 */
 }
 
@@ -69,7 +72,7 @@ body {
 /* 統一字體大小（標題 & 單行灰盒）*/
 .ui-box,
 .ui-box__title{              /* 主標字 */
-    font-size:2.5rem;        /* 想要多大就改這裡 */
+    font-size:2.3rem;        /* 想要多大就改這裡 */
     font-weight:800;
 }
 
@@ -117,20 +120,20 @@ body {
 
 .section-2__inner{
   display:flex;
-  flex-wrap:nowrap;  
-  gap:60px;             /* ← 用 px，寬度再大也不變 */            
+  flex-wrap:nowrap;
+  gap:60px;             /* ← 用 px，寬度再大也不變 */
   justify-content:flex-start;
   align-items:flex-start;
 }
 
 /* ------------------ 左欄 ------------------ */
-.section-2__left{ 
-  flex:0 0 34rem; 
+.section-2__left{
+  flex:0 0 34rem;
   max-width:34rem; /* 2. 左欄寬度 = Venn 圖寬，且允許縮小 */
   display:flex;         /* 讓左欄本身成為 Flex 容器          */
   flex-direction:column;/* 垂直排：灰盒在上，Venn 在下       */
-  align-items:center;   /* 水平置中所有子項（關鍵！）        */ 
-} 
+  align-items:center;   /* 水平置中所有子項（關鍵！）        */
+}
 
 
 .ui-box__label{ font-style:italic; color:#e28033; font-size:2rem; line-height:1; }
@@ -139,25 +142,25 @@ body {
 
 
 /* ------------------ Venn Diagram ------------------ */
-.venn-diagram{ 
-  position:relative; 
-  width:34rem; 
-  height:34rem; 
+.venn-diagram{
+  position:relative;
+  width:34rem;
+  height:34rem;
   margin:40px auto 0;
    }
 
 .venn-diagram__circle{
-  position:absolute; 
-  width:24rem; 
-  height:24rem; 
-  border-radius:50%; 
+  position:absolute;
+  width:24rem;
+  height:24rem;
+  border-radius:50%;
   opacity:.55;
 }
 
 /* 各圓顏色 */
-.venn-diagram__c1{ top:0; left:2rem;  background:#8ba3ff; }  /* 紫藍 */
-.venn-diagram__c2{ top:0; left:14rem; background:#f28a8a; }  /* 粉紅 */
-.venn-diagram__c3{ top:12rem; left:8rem;background:#f5d28a; }/* 淡金 */
+.venn-diagram__c1{ top:0; left:0rem;  background:#8ba3ff; }  /* 紫藍 */
+.venn-diagram__c2{ top:0; left:12rem; background:#f28a8a; }  /* 粉紅 */
+.venn-diagram__c3{ top:12rem; left:6rem;background:#f5d28a; }/* 淡金 */
 
 /* ② 所有圈內文字的「水平置中」共用設定 */
 .venn-diagram__circle span{
@@ -174,7 +177,7 @@ body {
 
 /* 中心白字置中 (不留白圈) */
 .venn-diagram__center{
-  position:absolute; top:50%; left:58%; transform:translate(-50%,-50%);
+  position:absolute; top:50%; left:52%; transform:translate(-50%,-50%);
   font-size:1.8rem; font-weight:900; color:#fff; pointer-events:none;
 }
 
@@ -189,9 +192,9 @@ body {
 
 /* CTA 區 (按鈕 + 原則文字) */
 .shopee-cta{
-  display:flex; 
-  flex-direction:column; 
-  align-items:center; 
+  display:flex;
+  flex-direction:column;
+  align-items:center;
   gap:.8rem;
   white-space:nowrap;           /* ❸ 不讓文字換行 */
 }
@@ -202,8 +205,8 @@ body {
 }
 .shopee-desc{ font-size:1.6rem; font-weight:700; }
 
-.right-img-placeholder{ width:100%; max-width:35rem; box-shadow:0 4px 12px rgba(0,0,0,.1);} /* 視窗小就跟著收 */
-  
+.right-img-placeholder{ width:100%; max-width:25rem; box-shadow:0 4px 12px rgba(0,0,0,.1);} /* 視窗小就跟著收 */
+
 
 /* ① 讓容器維持原來外觀，但同時可疊 2 張圖 */
 .img-hover{
@@ -235,16 +238,16 @@ body {
    ===================================================== */
 .section-3{ background:#f6f4ef; padding:80px 0; }
 
-/* 版面：左欄固定寬，右欄滿剩餘寬；兩者間距固定 60px */
+/* 版面：左欄固定寬，右欄滿剩餘寬；兩者間距固定 20px */
 .section-3__inner{
   display:flex;
-  gap:60px;               /* ★ 固定欄距，不隨螢幕變 */
+  gap:20px;               /* ★ 固定欄距，不隨螢幕變 */
   align-items:flex-start;
 }
 
 /* ---------- 左欄 ---------- */
 .section-3__left{
-  flex: 0 0 34rem;     /* = 340px */
+  flex: 0 0 30rem;     /* = 340px */
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -257,7 +260,7 @@ body {
 .section-3__right{
   flex:1 1 0;
   display:flex;
-  gap:80px;               /* 兩張卡水平間距固定 */
+  gap:40px;               /* 兩張卡水平間距固定 */
 }
 
 
@@ -269,9 +272,9 @@ body {
   box-shadow:6px 6px rgba(0,0,0,.06);
   }
 
-  
+
 .card{
-  width:260px;            /* 固定卡片寬 */
+  width:240px;            /* 固定卡片寬 */
   text-align:center;
   font-family:"Noto Sans TC",sans-serif;
 }
@@ -333,6 +336,134 @@ body {
   border-right:14px solid transparent;
   border-bottom:18px solid #000; /* 實心向上箭頭 */
 }
+
+
+/* =====================================================
+   第四區：保健文章（精簡版）
+   ===================================================== */
+.section-4{ background:#fdf5dc; padding:60px 0; }
+
+.section-4__inner{
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
+}
+
+/* 左欄 */
+.section-4__left{
+  flex:0 0 28rem;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:100px;
+}
+
+.ui-box__label-4{
+  font-size:1.5rem;
+  color:#000000;
+  line-height:1.2;
+  margin-bottom:.2rem;
+}
+
+.mascot-idea{ width:180px; height:auto; }
+
+/* 右欄 */
+.section-4__right{
+  flex:1 1 34rem;
+  display:flex;
+  flex-direction:column;
+  gap:30px;
+}
+
+
+/* 每篇文章 */
+.post{
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+}
+
+.post__text{ max-width:70%; white-space:normal; }
+
+.post__title{
+  font-size:1.8rem;      /* ↓ 比前面小一級 */
+  font-weight:800;
+  margin:0;
+  white-space:nowrap;
+}
+
+.post__en{
+  font-size:1.4rem;
+  font-style:italic;
+  margin:.2rem 0 .8rem;
+  white-space:nowrap;
+}
+
+.post__desc{
+  font-size:1.3rem;
+  line-height:1.2;
+  margin:0;
+}
+
+/* 文章按鈕 */
+.post__btn{
+  flex:0 0 200px;
+  padding:.8rem 0;
+  height:120px;                     /* 統一高度 */
+  font-size:2rem;
+  font-weight:800;
+  line-height:120px;                /* 文字垂直置中 */
+  text-align:center;
+  color:#000;
+  text-decoration:none;
+  border:3px solid #64625b;
+  border-radius:8px;
+  background:#dcdad4;
+  white-space:nowrap;          /* 不換行 */
+  transition:filter .25s;
+  white-space:nowrap;
+}
+.post__btn:hover{ filter:brightness(105%); }
+
+
+
+/* ---------- 手機 (≤600px) ---------- */
+@media (max-width:600px){
+  .section-4__inner{ flex-direction:column; gap:40px; }
+  .post{ flex-direction:column; }
+  .post__text{ max-width:100%; }
+  .post__btn{ width:100%; }
+}
+
+
+
+/* ---------- RWD：手機 (≤600px) ---------- */
+@media (max-width:600px){
+  .section-4__inner{ flex-direction:column; gap:40px; }
+
+  .post{
+    flex-direction:column;
+    gap:20px;
+  }
+  .post__text{ max-width:100%; }
+  .post__btn{ width:100%; flex:1 1 auto; }
+}
+
+
+   /* ---------- RWD：手機 (≤600px) ---------- */
+   @media (max-width:600px){
+     .section-4__inner{ flex-direction:column; gap:40px; }
+
+     .post{
+       flex-direction:column;
+       gap:20px;
+     }
+     .post__text{ max-width:100%; }
+     .post__btn{ width:100%; flex:1 1 auto; }
+   }
+
+
+
 
 
 
