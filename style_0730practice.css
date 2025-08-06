@@ -69,8 +69,8 @@ body {
 /* 統一字體大小（標題 & 單行灰盒）*/
 .ui-box,
 .ui-box__title{              /* 主標字 */
-    font-size:2.8rem;        /* 想要多大就改這裡 */
-    font-weight:900;
+    font-size:2.5rem;        /* 想要多大就改這裡 */
+    font-weight:800;
 }
 
 /* 斜體橘色小標（只有 Shopee 那一個有）*/
@@ -84,8 +84,8 @@ body {
 
 /* 版心想要「一條線對齊」→ 幫灰盒設定固定寬 */
 .is-wide{
-    width:300px;             /* 四個灰盒統一寬度 */
-    min-height:120px;
+    width:250px;             /* 四個灰盒統一寬度 */
+    min-height:80px;
     max-width:100%;
     display:flex;            /* 讓文字可垂直置中                   */
     flex-direction:column;
@@ -133,8 +133,8 @@ body {
 } 
 
 
-.ui-box__label{ font-style:italic; color:#e28033; font-size:2.2rem; line-height:1; }
-.ui-box__title{ margin:4px 0 0; font-size:3rem; font-weight:900; line-height:1.1; } 
+.ui-box__label{ font-style:italic; color:#e28033; font-size:2rem; line-height:1; }
+.ui-box__title{ margin:4px 0 0; font-size:2.5rem; font-weight:800; line-height:1.1; } 
 /*上方留 4 px 間距、字高 3 rem、粗黑體，行高 1.1（稍貼）*/
 
 
