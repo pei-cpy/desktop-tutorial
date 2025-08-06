@@ -463,7 +463,54 @@ body {
    }
 
 
+/* =====================================================
+   第五區：保健文章 (同第四區版型)
+   ===================================================== */
+   .section-5{ background:#f6f4ef; padding:60px 0; }
 
+   .section-5__inner{
+     display:flex;
+     gap:20px;
+     align-items:flex-start;
+   }
+   
+   /* 左欄 ▸ 與第四區相同，只是 class 名不同以免衝突 -------- */
+   .section-5__left{
+     flex:0 0 28rem;
+     display:flex;
+     flex-direction:column;
+     align-items:center;
+     gap:100px;
+   }
+   
+   /* 副標（字再小一點） */
+   .ui-box__label-5{
+     font-size:1.4rem;
+     color:#000000;
+     line-height:1.2;
+     margin-top:.4rem;
+   }
+   
+   /* 右欄 -------------------------------------------------- */
+   .section-5__right{
+     flex:1 1 34rem;
+     display:flex;
+     flex-direction:column;
+     gap:30px;
+   }
+   
+   /* 共用 post 元件：直接重用第四區的 .post* 規則          */
+   /* －－不用再寫：.post、.post__text、.post__title …        */
+   /* 如果你前面寫在 global 區域，這裡就自動沿用               */
+   
+   /* —— 如果要讓文章按鈕再小一點（可調）—— */
+   .section-5 .post__btn{
+     flex:0 0 180px;          /* 200→180 */
+     height:100px;            /* 120→100 */
+     font-size:1.8rem;        /* 2rem→1.8rem */
+     line-height:100px;
+   }
+   
 
 
 
